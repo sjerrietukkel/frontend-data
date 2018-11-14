@@ -37,11 +37,13 @@ obaApi.getAll('search', {
   const results = data.map(book => {
     return {
       title: book.titles[0].title[0]['_'],
+      year: book.publication[0].year[0]._,
+      place: book.publication[0].publishers[0].publisher[0].$.place
       // coverImage: book.coverimages[0].coverimage[0]['_'],
       // summary: book.summaries[0].summary[0]
     }
   })
-
+ 
   let total = {
     //url: response.url, 
     data: results
@@ -51,7 +53,7 @@ obaApi.getAll('search', {
   dataArray.push(total);
   return dataArray
   
-})
+}) 
 
 .then(response => {
   // Make server with the response on the port
