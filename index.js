@@ -19,12 +19,12 @@ const obaApi = new betterApi({
 // possible filterKey: any higher order key in response object, like title returns only title objects instead of full data object
  
 obaApi.getAll('search', {
-  facet: "genre(dieren)",
-  q: 'kat'
+  facet: "genre(oorlog-en-verzet)",
+  q: 'book'
 }, {
-  page: 2,
+  page: 1,
   pagesize: 20,
-  maxpages: 3
+  maxpages: 10
 })
 .then(response => {
   const data = response.data
@@ -57,9 +57,9 @@ obaApi.getAll('search', {
   // Make server with the response on the port
   app.get('/', (req, res) => res.json(response))
   app.listen(port, () => console.log(chalk.green(`Listening on port ${port}`)))
-
-  // data = JSON.stringify(response, null, 2);
-  // fs.writeFileSync('bookdata.json', data);
+  console.log(response)
+  data = JSON.stringify(response, null, 2);
+  fs.writeFileSync('bookdata.json', data);
 })
 .catch(err => console.log(err))
 // combined facets -> facet: ["genre(dieren)", "language(dut)"]
