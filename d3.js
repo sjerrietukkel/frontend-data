@@ -1,36 +1,60 @@
-			// //Width and height
-			// var w = 800;
-			// var h = 600;
-
-			// //Define map projection
+// Based on https://bl.ocks.org/gordlea/27370d1eea8464b04538e6d8ced39e89
 
 
-			// var projection = d3.geoMercator() //utiliser une projection standard pour aplatir les pôles, voir D3 projection plugin
-			// 					   .center([ 13, 52 ]) //comment centrer la carte, longitude, latitude
-			// 					   .translate([ w/2, h/2 ]) // centrer l'image obtenue dans le svg
-			// 					   .scale([ w/1.5 ]); // zoom, plus la valeur est petit plus le zoom est gros 
+// set the dimensions and margins of the graph
+var margin = {top: 20, right: 20, bottom: 30, left: 50},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
 
-			// //Define path generator
-			// var path = d3.geoPath()
-			// 				 .projection(projection);
+// parse the date / time
+var parseTime = d3.timeParse("%d-%b-%y");
 
+// set the ranges
+var x = d3.scaleTime().range([0, width]);
+var y = d3.scaleLinear().range([height, 0]);
 
-			// //Create SVG
-			// var svg = d3.select("#container")
-			// 			.append("svg")
-			// 			.attr("width", w)
-			// 			.attr("height", h);
+// define the line
+var valueline = d3.line()
+    .x(function(d) { return x(d.date); })
+    .y(function(d) { return y(d.close); });
 
-			// //Load in GeoJSON data
-			// d3.json("world_map.json", function(json) {
-				
-			// 	//Bind data and create one path per GeoJSON feature
-			// 	svg.selectAll("path")
-			// 	   .data(json.features)
-			// 	   .enter()
-			// 	   .append("path")
-			// 	   .attr("d", path)
-			// 	   .attr("stroke", "rgba(8, 81, 156, 0.2)")
-			// 	   .attr("fill", "rgba(8, 81, 156, 0.6)");
-		
-			// });
+// append the svg obgect to the body of the page
+// appends a 'group' element to 'svg'
+// moves the 'group' element to the top left margin
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+// Get the data
+d3.csv("duitsesteden.csv", function(error, data) {
+  if (error) throw error;
+
+  // format the data
+  data.forEach(function(d) {
+      d.date = parseTime(d.date);
+      d.close = +d.close;
+  });
+
+  // Scale the range of the data
+  x.domain(d3.extent(data, function(d) { return d.date; }));
+  y.domain([0, d3.max(data, function(d) { return d.close; })]);
+
+  // Add the valueline path.
+  svg.append("path")
+      .data([data])
+      .attr("class", "line")
+      .attr("d", valueline);
+
+  // Add the X Axis
+  svg.append("g")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x));
+
+  // Add the Y Axis
+  svg.append("g")
+      .call(d3.axisLeft(y));
+
+});
