@@ -28,10 +28,9 @@ var svg = d3.select("body").append("svg")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
-// Get the data
-d3.csv("duitsesteden.csv", function(error, data) {
-  if (error) throw error;
-
+d3.csv('data.csv')
+.then(function(data, error){
+  if (error) throw error('error');
   // format the data
   data.forEach(function(d) {
       d.date = parseTime(d.date);
