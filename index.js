@@ -31,6 +31,7 @@ const search = {
   }
 }
 
+
 obaApi.getPages(search).then(
   res => fs.writeFile('1950.json', JSON.stringify(res.data), 'utf8', () => {
     console.log('Joe joe, ik heb de file gemaakt.')

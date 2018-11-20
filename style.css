@@ -27,9 +27,10 @@ h1 {
 }
 
 .line {
+    label: Duitsland;
     fill: none;
-    stroke: steelblue;
-    stroke-width: 2px;
+    stroke: rgb(250, 180, 89);
+    stroke-width: 4px;
   }
 
 
