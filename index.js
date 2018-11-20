@@ -13,8 +13,8 @@ const obaApi = new gissa({
 const search = {
   endpoint: 'search',
   query: {
-      q: 'year:1950',
-      facet: 'pubYear(1950)&facet=language(ger)',
+      q: 'year:1944',
+      facet: 'pubYear(1944)&facet=language(ger)',
       refine: true
   },
   pages: {
@@ -24,16 +24,16 @@ const search = {
   },
   filter: {
       pubYear: `book.publication && book.publication[0].year && book.publication[0].year[0]['_'] ? book.publication[0].year[0]['_'] : null`,
-      language: `book.languages && book.languages[0] && book.languages[0].language && book.languages[0].language[0] ? book.languages[0].language[0]['_'] : null`,
+      // language: `book.languages && book.languages[0] && book.languages[0].language && book.languages[0].language[0] ? book.languages[0].language[0]['_'] : null`,
       publication: `book.publication[0].publishers[0].publisher[0].$.place`,
-      originLang: `book.languages && book.languages[0] && book.languages[0]['original-language'] ? book.languages[0]['original-language'][0]['_'] : null`,
-      title: `book.titles[0].title[0]['_']`
+      // originLang: `book.languages && book.languages[0] && book.languages[0]['original-language'] ? book.languages[0]['original-language'][0]['_'] : null`,
+      // title: `book.titles[0].title[0]['_']`
   }
 }
 
 
 obaApi.getPages(search).then(
-  res => fs.writeFile('1950.json', JSON.stringify(res.data), 'utf8', () => {
+  res => fs.writeFile('data/du_negentienvierenveertig.json', JSON.stringify(res.data), 'utf8', () => {
     console.log('Joe joe, ik heb de file gemaakt.')
   })
 )
