@@ -13,19 +13,20 @@ const obaApi = new gissa({
 const search = {
   endpoint: 'search',
   query: {
-      q: 'year:1944',
-      facet: 'pubYear(1944)&facet=language(ger)',
+      q: 'book',
+      facet: 'language(ger)',
       refine: true
   },
   pages: {
       page: 1,
       pagesize: 20,
-      maxpages: 50
+      maxpages: 1000
   },
   filter: {
       pubYear: `book.publication && book.publication[0].year && book.publication[0].year[0]['_'] ? book.publication[0].year[0]['_'] : null`,
       // language: `book.languages && book.languages[0] && book.languages[0].language && book.languages[0].language[0] ? book.languages[0].language[0]['_'] : null`,
-      publication: `book.publication[0].publishers[0].publisher[0].$.place`,
+      // publication: `book.publication[0].publishers[0].publisher[0].$.place  book.publication[0].publishers[0] : null`,
+      publication: `book.publication && book.publication[0].publishers && book.publication[0].publishers[0].publisher && book.publication[0].publishers[0].publisher[0].$.place ? book.publication[0].publishers[0].publisher[0].$.place : null`
       // originLang: `book.languages && book.languages[0] && book.languages[0]['original-language'] ? book.languages[0]['original-language'][0]['_'] : null`,
       // title: `book.titles[0].title[0]['_']`
   }
@@ -33,7 +34,7 @@ const search = {
 
 
 obaApi.getPages(search).then(
-  res => fs.writeFile('data/du_negentienvierenveertig.json', JSON.stringify(res.data), 'utf8', () => {
+  res => fs.writeFile('data/all.json', JSON.stringify(res.data), 'utf8', () => {
     console.log('Joe joe, ik heb de file gemaakt.')
   })
 )
