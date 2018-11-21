@@ -32,4 +32,9 @@ h1 {
     stroke-width: 4px;
   }
 
+  svg {
+      margin-left: 30px;
+      overflow: visible;
+  }
+
 
