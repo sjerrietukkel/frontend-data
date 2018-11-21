@@ -3,30 +3,43 @@ d3.csv("duitsesteden.csv").then(function(data) {
     return data
 })
 
-.then(data => {
+.then(data => {  
   d3.json("data/all.json").then(function(bookdata){
     var duitseSteden = data.map(d => {
         return d.publication.replace(/[^a-zA-Z ]/g, "")
-
     })
+    var publicationYear = bookdata.map(d => {
+        if (d.pubYear == null) { 
+            return "";
+        }
+        return d.pubYear
+    })
+    console.log(publicationYear)
+
     var publicationCity = bookdata.map(d => {
+        if (d.publication == null) { 
+            return "";
+        }
         return d.publication.replace(/[^a-zA-Z ]/g, "")
-    })  
+    })
+    console.log(publicationCity)
+
     var cityArray = []
     duitseSteden.forEach(city => {
-        if (publicationCity.includes(city)) {
+        if (publicationCity.includes(city)  ) {
             cityArray.push(city)
         }
         else {
-            console.log('false')
+            // console.log('nietus')
         }
-        
     })
-    console.log(cityArray.length)
+    console.log(cityArray)
     return bookdata
   })
   return data
 })
+
+
 
 // .then(data => {
 //     d3.json("data/du_negentienvierenveertig.json").then(function(bookdata){
