@@ -10,11 +10,10 @@ d3.csv("duitsesteden.csv").then(function(data) {
     })
     var publicationYear = bookdata.map(d => {
         if (d.pubYear == null) { 
-            return "";
+            return ""; 
         }
         return d.pubYear
     })
-    console.log(publicationYear)
 
     var publicationCity = bookdata.map(d => {
         if (d.publication == null) { 
@@ -22,76 +21,63 @@ d3.csv("duitsesteden.csv").then(function(data) {
         }
         return d.publication.replace(/[^a-zA-Z ]/g, "")
     })
-    console.log(publicationCity)
+    
 
     var cityArray = []
-    duitseSteden.forEach(city => {
-        if (publicationCity.includes(city)  ) {
-            cityArray.push(city)
-        }
-        else {
-            // console.log('nietus')
-        }
-    })
-    console.log(cityArray)
+    // duitseSteden.forEach(city => {
+    //     if (publicationCity.includes(city)  ) {
+    //         cityArray.push(city)
+    //     }
+    //     else {
+    //         // console.log('nietus')
+    //     }
+    // })
+
+    // console.log(publicationCity)
+    // console.log(publicationYear)
+    // console.log(cityArray)
+    // console.log(bookdata)
+
+    // duitseSteden.filter(city => {
+    //     // console.log(city)
+    //     if (bookdata.publication.includes(city)) {
+    //         cityArray.push(bookdata)
+    //     }
+    // })
+
+    // publicationCity.forEach(book => {
+    //     // console.log(book)
+    //     if(publicationCity.includes(duitseSteden)) {
+    //         console.log('check')
+    //     }
+    //     else {
+
+    //     }
+    // })
+
+    var steden = d3
+        .nest()
+        .key(jaar => pubYear)
+        .key(stad => publication)
+        .rollup()
+
     return bookdata
   })
   return data
 })
 
-
-
-// .then(data => {
-//     d3.json("data/du_negentienvierenveertig.json").then(function(bookdata){
-//       var duitseSteden = data.map(d => {
-//           return d.publication.replace(/[^a-zA-Z ]/g, "")
-  
-//       })
-//       var publicationCity = bookdata.map(d => {
-//           return d.publication.replace(/[^a-zA-Z ]/g, "")
-//       })  
-//       var cityArray = []
-//       duitseSteden.forEach(city => {
-//           if (publicationCity.includes(city)) {
-//               cityArray.push(city)
-//           }
-//           else {
-//               console.log('false')
-//           }
-//       })
-//       console.log(cityArray.length)
-//       return bookdata
-//     })
-//     return data
-//   })
-
-//   .then(data => {
-//     d3.json("data/du_negentienvijfendertig.json").then(function(bookdata){
-//       var duitseSteden = data.map(d => {
-//           return d.publication.replace(/[^a-zA-Z ]/g, "")
-  
-//       })
-//       var publicationCity = bookdata.map(d => {
-//           return d.publication.replace(/[^a-zA-Z ]/g, "")
-//       })  
-//       var cityArray = []
-//       duitseSteden.forEach(city => {
-//           if (publicationCity.includes(city)) {
-//               cityArray.push(city)
-//           }
-//           else {
-//               console.log('false')
-//           }
-//       })
-//       console.log(cityArray.length)
-//       return bookdata
-//     })
-//     return data
-//   })
-
-// let width = 800
-// let height = 500
-
-// let body = d3.select.('body')
-// let svg = body.append('svg')
+d3.json("data/all.json").then(function(data) {
+    var bookNested = d3
+        .nest()
+        .key(data => data.publication)
+        .key(data => data.pubYear)
+        
+        // .rollup(function(data) {
+        //     return data.length
+        // })
+        .entries(data) 
+        console.log(bookNested)    
+    return bookNested
+   
+})
 
