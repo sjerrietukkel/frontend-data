@@ -34,7 +34,7 @@ node index
 
 ## Data Restructering
 This was what I spend the majority of the two weeks on. The example I based my graph on (https://beta.observablehq.com/@mbostock/d3-multi-line-chart) used the following structure: 
-```json
+```js
 [
     {
         y: "%Unemployed"
@@ -65,9 +65,8 @@ let cityList = ['Berlin',  'Frankfurt am Main', 'Mnchen', 'Leipzig']
         cityList.push(document.getElementById('box').value); 
         update(createDataList(cityList))
         console.log(cityList)
-      }
+    }
 
-      
     function createDataList(list){
         const result = [];
         list.forEach(city => {
@@ -75,30 +74,24 @@ let cityList = ['Berlin',  'Frankfurt am Main', 'Mnchen', 'Leipzig']
                 city: city,
                 value: []
             }
-
             for (let i = 1920; i <= 1970; i++) {
                 let thisYear = {
                     year: i,
                     value: 0
                 }
-
                 publicationCity.forEach(book => {
                     if(book.publication != city) {
                         return
                     }
-
                     if (Number(book.pubYear) === i) {
                         thisYear.value++
                     }
                 })
-
                 thisCityValues.value.push(thisYear)
             }
-
             result.push(thisCityValues)
         })
         return result
-
     }
 
 ```
