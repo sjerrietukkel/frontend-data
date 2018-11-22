@@ -149,13 +149,20 @@ d3.json("data/all.json").then(function(data) {
             }
         })
 
+        thisYear.values.sort(function(a, b) {
+            var textA = a.city.toUpperCase();
+            var textB = b.city.toUpperCase();
+            return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+        });
+
         sortedByYear.push(thisYear)
     }
-
-    console.log(sortedByYear)
+    return sortedByYear
 })
 
 .then(d => {
+    console.log(d)
+
     let body = d3.select('body')
     let svg = body
     .append('svg')
@@ -172,7 +179,6 @@ d3.json("data/all.json").then(function(data) {
     }) 
 
 
-    // console.log("bookcount", bookCount)
 
     let Xscale = d3.scaleLinear()
         .range ([0, 700])
