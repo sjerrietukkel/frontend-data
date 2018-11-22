@@ -2,12 +2,13 @@
 ![Endresult](images/final_graph.png)
 
 ## Index
-* Introduction
-* Installation
-* Data Restructering 
-* Checklist
-* Conclusion
-* Credits
+**[Installation](#installation)**<br>
+**[Introduction](#Introduction)**<br>
+**[Data Restructering](#data-restructering)**<br>
+**[Checklist](#checklist)**<br>
+**[Conclusion](#conclusion)**<br>
+**[Credits](#credits)**<br>
+
 
 ## Introduction
 The assignment for FD was to create a interactive data visualisation in which user could explore for themselves. The data was provided by the Amsterdam library (OBA). I created a multiline graph that showes german books published between 1930-1970 by city. The default graph showcases the 4 biggest cities by publisher. The user can add other cities themselves. 
