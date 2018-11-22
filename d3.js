@@ -89,9 +89,70 @@ d3.json("data/all.json").then(function(data) {
     //     }
     // })
     // console.log(bookNested)
+    var publicationCity = data.map(d => {
+        return {
+            pubYear: d.pubYear,
+            publication: d.publication == null ? 'geen plaats' : d.publication.replace(/[^a-zA-Z ]/g, "")
+        }
+    })
 
-    return bookNested
-   
+    function oneOfCities(city) {
+        switch (city) {
+            case 'Amsterdam':
+            case 'Berlin':
+            case 'Kln':
+            case 'Zrich':
+            case 'Frankfurt am Main':
+            case 'Mnchen':
+            case 'Wien':
+                return true
+            default:
+                return false
+        }
+    }
+
+
+    let sortedByYear = []
+    for (let i = 1900; i <= 2018; i++) {
+        let thisYear = {
+            year: i,
+            values: []
+        }
+
+        publicationCity.forEach(book => {
+            let thisCity = book.publication
+
+            function findCity(bookItem) {
+                return bookItem.city === book.publication
+            }
+
+            if (oneOfCities(book.publication) === false) {
+                return
+            }
+
+            if (Number(book.pubYear) === i) {
+                let arrayItem = thisYear.values.find(findCity)
+                let index = thisYear.values.findIndex(findCity)
+                if (index === -1) {
+                    thisYear.values.push({city: book.publication, value: 1})
+                } else if (index >= 0) {
+                    thisYear.values.splice(index, 1)
+                    thisYear.values.push({city: book.publication, value: arrayItem.value + 1})
+                }
+            } else {
+                let index = thisYear.values.findIndex(findCity)
+
+                if (index >= 0) {
+                    return
+                }
+                thisYear.values.push({city: book.publication, value: 0})
+            }
+        })
+
+        sortedByYear.push(thisYear)
+    }
+
+    console.log(sortedByYear)
 })
 
 .then(d => {
@@ -101,20 +162,15 @@ d3.json("data/all.json").then(function(data) {
     .attr('width', 1000)
     .attr('height', 1000)
 
-    console.log(d)
-
-
     let yearCount = d.map(d => {
         return Number(d.key)
     })  
 
-    console.log(yearCount)
 
     let bookCount = d.map(d => {
         return Number(d.value)
     }) 
 
-    console.log(bookCount)
 
     // console.log("bookcount", bookCount)
 
@@ -178,6 +234,3 @@ d3.json("data/all.json").then(function(data) {
     })
 
 })
-
-
-
