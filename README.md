@@ -93,15 +93,19 @@ function createDataList(list){
 ```
 With the help of @gijslaarman 
 
+## Checklist
+
+- [x] Connect with the API
+- [x] Restructure Data
+- [x] Creating graph
+- [x] User input
+- [ ] Transitions
+- [ ] Better CSS 
+- [ ] Give user more options & clarity (remove/hide lines, tooltip)
+- [ ] Retrieve cleaner data
+
+
 ### Wireframes
-
-
-
-
-
-
-
-
 ![Scatterplot all German books in ObA](images/screenshot_scatterplot.png)
 
 ### Credits
