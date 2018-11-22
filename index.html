@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Duits-talige boeken in de ObA door de jaren</title>
+		<title>Boeken gepubliseerd in Duitsland rond de 2e wereldoorlog</title>
         <script src="https://d3js.org/d3.v5.min.js"></script>
         <script src="http://d3js.org/topojson.v0.min.js"></script>
         <link rel="stylesheet" href="style.css">
@@ -10,9 +10,22 @@
         <link href='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.css' rel='stylesheet' />
 	</head>
 	<body>
-        <h1>Duits-talige boeken in de ObA door de jaren</h1>
+        <h1>Boeken gepubliseerd in Duitsland rond de 2e wereldoorlog</h1>
+        <section class='legend'>
+            <p class="Berlin">Berlin</p>
+            <p class="Frankfurt">Frankfurt</p>
+            <p class="Kln">Keulen</p>
+            <p class="Leipzig">Leipzig</p>
+            <p class="Mnchen">München</p>
+            <p>Zoek een stad*</p>
+                <input type="text" id="box">
+                <p class="notes">* Voer stad in zonder speciale leestekens bijv. Zrich i.p.v. Zürich</p>
 
+                <button id="submit">Submit</button>
+        </section>
         <div id="chart"></div>
+
+
     <!-- <div id='map' style='width: 600px; height: 400px;'></div>
     <script src='https://api.mapbox.com/mapbox-gl-js/v0.51.0/mapbox-gl.js'></script>
 <script>

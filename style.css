@@ -2,6 +2,10 @@ body {
     background-color: #efefef;
 }
 
+#chart {
+    border-radius: 5px
+}
+
 svg {
     background-color: white;
 }
@@ -16,6 +20,12 @@ h1 {
 
 }
 
+.notes {
+    color: #5c5c5c;
+    font-size: 12px;
+    font-weight: 200
+}
+
     #container {
     width: 800px;
     margin-left: auto;
@@ -28,8 +38,9 @@ h1 {
 
 .line {
     fill: none;
-    stroke: rgb(250, 180, 89);
-    stroke-width: 4px;
+    stroke-width: 3px;
+    opacity: .5;
+    stroke: black;
   }
 
   svg {
@@ -37,4 +48,81 @@ h1 {
       overflow: visible;
   }
 
+  .legend {
+      background-color: #ffffff;
+      border-radius: 5px;
+      width: 10em;
+      float: right;
+      padding: 20px;
+      margin-right: 12em;
+      text-align: left;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      font-weight: 600
 
+  }
+
+  .Leipzig {
+    stroke: orange;
+    background-color: rgba(255, 166, 0, 0.523);
+    border-radius: 3px;
+    color: white;
+    text-align: center;
+    padding: 5px
+  }  
+
+  .Berlin {
+      stroke: blue;
+      background-color: rgba(0, 0, 255, 0.495);
+      border-radius: 3px;
+      color: white;
+      text-align: center;
+      padding: 5px
+  }
+
+  .Kln {
+    stroke: red;
+    background-color: rgba(255, 0, 0, 0.495);
+    border-radius: 3px;
+    color: white;
+    text-align: center;
+    padding: 5px
+  }
+
+  .Mnchen {
+    stroke: hotpink;
+      background-color: rgba(255, 105, 180, 0.495);
+      border-radius: 3px;
+      color: white;
+      text-align: center;
+      padding: 5px
+
+  }
+
+  .Frankfurt {
+    stroke: gold;
+    background-color: rgba(255, 217, 0, 0.495);
+    border-radius: 3px;
+    color: white;
+    text-align: center;
+    padding: 5px
+  }
+
+  .Wien {
+    stroke: gray;
+      background-color: rgba(128, 128, 128, 0.495);
+      border-radius: 3px;
+      color: white;
+      text-align: center;
+      padding: 5px
+
+  }
+
+  .Hamburg {
+    stroke: brown;
+    background-color: rgba(165, 42, 42, 0.502);
+    border-radius: 3px;
+    color: white;
+    text-align: center;
+    padding: 5px
+  }
