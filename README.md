@@ -48,7 +48,7 @@ This was what I spend the majority of the two weeks on. The example I based my g
 So to me it seemed logical to restructure it the same way, which horribly failed, because the example uses 2 seperate datasets which are combined and I used only one.
 
 I wanted to restructure the data as city > pubYear > value. 
-The code that did this is as follows: 
+First I had to filter out all the typo's and invalid cities
 
 ```js
 var publicationCity = data.map(d => {
@@ -57,19 +57,13 @@ var publicationCity = data.map(d => {
             publication: d.publication == null ? 'geen plaats' : d.publication.replace(/[^a-zA-Z ]/g, "")
         }
     })
+```
+The following code counts checks publication years, how often a city is mentioned and checks the value.
 
-let cityList = ['Berlin',  'Frankfurt am Main', 'Mnchen', 'Leipzig']
+```js
 
-    let submit = document.querySelector("#submit").addEventListener('click', addToCityList)
-    // var inputValue = document.getElementById('box').value
-    function addToCityList() {
-        cityList.push(document.getElementById('box').value); 
-        update(createDataList(cityList))
-        console.log(cityList)
-    }
-
-    function createDataList(list){
-        const result = [];
+function createDataList(list){
+    const result = [];
         list.forEach(city => {
             thisCityValues = {
                 city: city,
@@ -80,20 +74,20 @@ let cityList = ['Berlin',  'Frankfurt am Main', 'Mnchen', 'Leipzig']
                     year: i,
                     value: 0
                 }
-                publicationCity.forEach(book => {
-                    if(book.publication != city) {
-                        return
-                    }
-                    if (Number(book.pubYear) === i) {
-                        thisYear.value++
-                    }
-                })
-                thisCityValues.value.push(thisYear)
-            }
+            publicationCity.forEach(book => {
+                if(book.publication != city) {
+                            return
+                        }
+                        if (Number(book.pubYear) === i) {
+                            thisYear.value++
+                        }
+                    })
+                    thisCityValues.value.push(thisYear)
+                }
             result.push(thisCityValues)
         })
-        return result
-    }
+    return result
+}
 
 ```
 With the help of @gijslaarman 
