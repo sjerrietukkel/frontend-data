@@ -34,7 +34,10 @@ node index
 ```
 
 ## Data Restructering
-This was what I spend the majority of the two weeks on. The example I based my graph on (https://beta.observablehq.com/@mbostock/d3-multi-line-chart) used the following structure: 
+Using the OBA-Scraper I retrieved all 19462 german books, which litterally took 35 minutes. and filtered them on publication place, and publication year. However, it wasn't structered the way I wanted .
+
+
+That's what I spend the majority of the two weeks on. The example I based my graph on (https://beta.observablehq.com/@mbostock/d3-multi-line-chart) used the following structure: 
 ```js
 [
     {
