@@ -47,7 +47,8 @@ This was what I spend the majority of the two weeks on. The example I based my g
 ```
 So to me it seemed logical to restructure it the same way, which horribly failed, because the example uses 2 seperate datasets which are combined and I used only one.
 
-I wanted to restructure the data as city > pubYear > value. With the help of @gijslaarman 
+I wanted to restructure the data as city > pubYear > value. 
+The code that did this is as follows: 
 
 ```js
 var publicationCity = data.map(d => {
@@ -95,7 +96,7 @@ let cityList = ['Berlin',  'Frankfurt am Main', 'Mnchen', 'Leipzig']
     }
 
 ```
-
+With the help of @gijslaarman 
 
 ### Wireframes
 
