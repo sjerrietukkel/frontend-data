@@ -148,6 +148,8 @@ This was done ith the help of @gijslaarman .
 ## Conclusion 
 Creating this visualisation was difficult. I tried to restructure the data by myself and got horribly lost. Luckily Laurens helped me out by drawing the data structure. This helped me a lot. My initial idea was to see 3 different countries on a line graph during the second world war, but this quickly became to complex so I narrowed it down to Germany.
 
+I really wanted to write a lot of code myself, but I'm just not there yet. 
+
 ### Credits
 @Gijslaarman for helping me restructure the data. <br>
 @Folkert-Jan for helping with the update function.
