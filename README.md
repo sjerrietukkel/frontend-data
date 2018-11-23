@@ -4,8 +4,9 @@
 ## Index
 **[Introduction](#Introduction)**<br>
 **[Installation](#installation)**<br>
+**[Retrieving Data](#retrieving-data)**<br>
 **[Data Restructering](#data-restructering)**<br>
-**[Checklist](#checklist)**<br>
+**[To-Do](#to-do)**<br>
 **[Conclusion](#conclusion)**<br>
 **[Credits](#credits)**<br>
 
@@ -32,6 +33,40 @@ PUBLIC_KEY=your_API_key
 Start up the nodeJS server:
 node index
 ```
+
+## Retrieving Data
+The data I needed for my visualisation were all german books filtered by publication place and publication year. Using the following code in the Oba-Scraper:
+```js
+query: {
+      q: 'book',
+      facet: 'language(ger)',
+      refine: true
+  },
+  pages: {
+      page: 1,
+      pagesize: 20,
+      maxpages: 1000
+  }
+}  
+```
+Using the filter I made sure it got back data, if that isn't the case it'll return ```null```
+```js
+ filter: {
+    pubYear: `book.publication && book.publication[0].year && book.publication[0].year[0]['_'] ? book.publication[0].year[0]['_'] : null`,
+      publication: `book.publication && book.publication[0].publishers && book.publication[0].publishers[0].publisher && book.publication[0].publishers[0].publisher[0].$.place ? book.publication[0].publishers[0].publisher[0].$.place : null`
+ }  
+```
+This was pushed into a .json file using 
+
+```js
+obaApi.getPages(search).then(
+  res => fs.writeFile('data/all.json', JSON.stringify(res.data), 'utf8', () => {
+    console.log('Joe joe, ik heb de file gemaakt.')
+  })
+)
+```
+
+This resulted in a all.json, which houses 19462 german books.
 
 ## Data Restructering
 Using the OBA-Scraper I retrieved all 19462 german books, which literally took 35 minutes, and filtered those on publication place, and publication year. However, it wasn't structered the way I wanted .
@@ -108,11 +143,14 @@ This was done ith the help of @gijslaarman .
 - [ ] Cleaner CSS 
 - [ ] Give user more options & clarity (remove/hide lines, tooltip)
 - [ ] Retrieve cleaner data
+- [ ] Fix x-axis bug on Chrome
 
-
+## Conclusion 
+Creating this visualisation was difficult. I tried to restructure the data by myself and got horribly lost. Luckily Laurens helped me out by drawing the data structure. This helped me a lot. My initial idea was to see 3 different countries on a line graph during the second world war, but this quickly became to complex so I narrowed it down to Germany.
 
 ### Credits
 @Gijslaarman for helping me restructure the data. <br>
 @Folkert-Jan for helping with the update function.
+<br>
 @mbostock: https://beta.observablehq.com/@mbostock/d3-multi-line-chart
 
