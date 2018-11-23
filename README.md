@@ -154,13 +154,13 @@ It wasn't what I wanted or needed by a long shot, but at least it showed some so
 
 Creating this visualisation was difficult. I tried to restructure the data by myself and got horribly lost as you can see. Luckily Laurens helped me out by drawing out the data structure. This helped me a lot. My initial idea was to see 3 different countries on a line graph during the second world war, but this quickly became to complex so I narrowed it down to Germany.
 
-I really wanted to write a lot of code myself, but I'm just not there yet. Some of my attempts can be found in [Code.js](code.js). I understand the code, what it does, why it does that. But I don't have the knowledge yet to tackle a challenge like this by myself, but I do have the feeling I'm getting there.
+I really wanted to write a lot of code myself, but I'm just not there yet. Some of my attempts can be found in [Code.js](code.js). I understand the code, what it does, why it does that. But I don't have the knowledge yet to tackle a challenge like this by myself, but I learned a lot and have the feeling I'm getting there.
 
 Unfortunatly there are still some things that need attention/need to be fixed. I couldn't get those done in the remaining time.
 
 ### Credits
-@Gijslaarman for helping me restructure the data. <br>
-@Folkert-Jan for helping with the update function.
+[@Gijslaarman](https://github.com/gijslaarman/) for helping me restructure the data. <br>
+[@Folkert-Jan](https://github.com/FJvdPol) for helping with the update function.
 <br>
-@mbostock: https://beta.observablehq.com/@mbostock/d3-multi-line-chart
+[@mbostock](https://github.com/mbostock): https://beta.observablehq.com/@mbostock/d3-multi-line-chart
 
