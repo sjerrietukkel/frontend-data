@@ -44,7 +44,7 @@ h1 {
     fill: none;
     stroke-width: 3px;
     opacity: .5;
-    
+    stroke: black;
   }
 
   /* .line:nth-of-type(5) {
