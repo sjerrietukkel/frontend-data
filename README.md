@@ -147,9 +147,16 @@ This was done ith the help of @gijslaarman .
 - [ ] Fix x-axis bug on Chrome
 
 ## Conclusion 
-Creating this visualisation was difficult. I tried to restructure the data by myself and got horribly lost. Luckily Laurens helped me out by drawing the data structure. This helped me a lot. My initial idea was to see 3 different countries on a line graph during the second world war, but this quickly became to complex so I narrowed it down to Germany.
 
-I really wanted to write a lot of code myself, but I'm just not there yet. Some of my attempts can be found in [Code.js](code.js). I understand the code, what it does, why it does that. But I don't have the knowledge yet to tackle a challenge like this by myself.
+From the beginning I wanted a multiline chart and somehow halfway I ended up with a scatterplot 
+![Scatterplot](images/screenshot_scatterplot.png)
+It wasn't what I wanted or needed by a long shot, but at least it showed some sort of trend in my data which was nice to see for once. 
+
+Creating this visualisation was difficult. I tried to restructure the data by myself and got horribly lost as you can see. Luckily Laurens helped me out by drawing out the data structure. This helped me a lot. My initial idea was to see 3 different countries on a line graph during the second world war, but this quickly became to complex so I narrowed it down to Germany.
+
+I really wanted to write a lot of code myself, but I'm just not there yet. Some of my attempts can be found in [Code.js](code.js). I understand the code, what it does, why it does that. But I don't have the knowledge yet to tackle a challenge like this by myself, but I do have the feeling I'm getting there.
+
+Unfortunatly there are still some things that need attention/need to be fixed. I couldn't get those done in the remaining time.
 
 ### Credits
 @Gijslaarman for helping me restructure the data. <br>
