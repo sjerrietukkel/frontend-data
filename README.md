@@ -129,7 +129,7 @@ function createDataList(list){
 }
 
 ```
-This was done ith the help of @gijslaarman .
+This was done ith the help of [@Gijslaarman](https://github.com/gijslaarman/).
 
 
 
