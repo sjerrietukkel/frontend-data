@@ -98,20 +98,18 @@ This was done ith the help of @gijslaarman .
 
 
 
-## Checklist
+## To-Do
 
-- [x] Connect with the API
 - [x] Restructure Data
-- [x] Creating graph
+- [x] Create graph
+- [x] Add values on axis
 - [x] User input
 - [ ] Transitions
-- [ ] Better CSS 
+- [ ] Cleaner CSS 
 - [ ] Give user more options & clarity (remove/hide lines, tooltip)
 - [ ] Retrieve cleaner data
 
 
-### Wireframes
-![Scatterplot all German books in ObA](images/screenshot_scatterplot.png)
 
 ### Credits
 @Gijslaarman for helping me restructure the data. <br>
