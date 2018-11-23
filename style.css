@@ -44,7 +44,31 @@ h1 {
     fill: none;
     stroke-width: 3px;
     opacity: .5;
+    
+  }
+
+  .line:nth-of-type(5) {
+    stroke: red;
+  }
+
+  .line:nth-of-type(6) {
+    stroke: yellow;
+  }
+
+  .line:nth-of-type(7) {
+    stroke: rgb(0, 166, 255);
+  }
+
+  .line:nth-of-type(8) {
+    stroke: rgb(212, 0, 255);
+  }
+
+  .line:nth-of-type(9) {
     stroke: black;
+  }
+
+  .line:nth-of-type(10) {
+    stroke: green;
   }
 
   svg {
