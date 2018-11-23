@@ -133,6 +133,7 @@ This was done ith the help of @gijslaarman .
 
 
 
+
 ## To-Do
 
 - [x] Restructure Data
@@ -148,7 +149,7 @@ This was done ith the help of @gijslaarman .
 ## Conclusion 
 Creating this visualisation was difficult. I tried to restructure the data by myself and got horribly lost. Luckily Laurens helped me out by drawing the data structure. This helped me a lot. My initial idea was to see 3 different countries on a line graph during the second world war, but this quickly became to complex so I narrowed it down to Germany.
 
-I really wanted to write a lot of code myself, but I'm just not there yet. 
+I really wanted to write a lot of code myself, but I'm just not there yet. Some of my attempts can be found in [Code.js](code.js). I understand the code, what it does, why it does that. But I don't have the knowledge yet to tackle a challenge like this by myself.
 
 ### Credits
 @Gijslaarman for helping me restructure the data. <br>
