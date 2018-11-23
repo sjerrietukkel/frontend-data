@@ -1,9 +1,4 @@
-// Based on https://bl.ocks.org/gordlea/27370d1eea8464b04538e6d8ced39e89
-// d3.csv("duitsesteden.csv").then(function(data) {
-//     return data
-// })
-
-
+// Based on https://beta.observablehq.com/@razpudding/d3-multi-line-chart
 
 // .then(data => {  
 //   d3.json("data/all.json").then(function(bookdata){
@@ -98,7 +93,7 @@ d3.json("data/all.json").then(function(data) {
         }
     })
 
-    let cityList = ['Berlin', 'Kln',  'Frankfurt am Main', 'Mnchen', 'Leipzig']
+    let cityList = ['Berlin',  'Frankfurt am Main', 'Mnchen', 'Leipzig']
     let dataList = []
 
 
@@ -147,7 +142,7 @@ d3.json("data/all.json").then(function(data) {
 
 
     
-    var margin = {top: 20, right: 20, bottom: 30, left: 50},
+    var margin = {top: 20, right: 20, bottom: 60, left: 60},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
@@ -170,10 +165,25 @@ d3.json("data/all.json").then(function(data) {
     svg.append("g")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x));
+    svg.append("text")             
+      .attr("transform",
+            "translate(" + (width/2) + " ," + 
+                           (height + margin.top + 20) + ")")
+      .style("text-anchor", "middle")
+      .style("font-family", "Arial, Helvetica, sans-serif")
+      .text("Jaartal");
 
     // Add the Y Axis
     svg.append("g")
         .call(d3.axisLeft(y));
+        svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1.5em")
+      .style("text-anchor", "middle")
+      .style("font-family", "Arial, Helvetica, sans-serif")
+      .text("Uitgebrachte boeken");      
     
             
     update(createDataList(cityList))

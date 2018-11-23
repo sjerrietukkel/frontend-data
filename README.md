@@ -2,8 +2,8 @@
 ![Endresult](images/final_graph.png)
 
 ## Index
-**[Installation](#installation)**<br>
 **[Introduction](#Introduction)**<br>
+**[Installation](#installation)**<br>
 **[Data Restructering](#data-restructering)**<br>
 **[Checklist](#checklist)**<br>
 **[Conclusion](#conclusion)**<br>
@@ -94,7 +94,9 @@ function createDataList(list){
 }
 
 ```
-With the help of @gijslaarman 
+This was done ith the help of @gijslaarman .
+
+
 
 ## Checklist
 
@@ -114,3 +116,5 @@ With the help of @gijslaarman
 ### Credits
 @Gijslaarman for helping me restructure the data. <br>
 @Folkert-Jan for helping with the update function.
+@mbostock: https://beta.observablehq.com/@mbostock/d3-multi-line-chart
+
